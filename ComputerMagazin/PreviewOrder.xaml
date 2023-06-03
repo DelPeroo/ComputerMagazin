@@ -1,0 +1,26 @@
+﻿<Window x:Class="ComputerMagazin.PreviewOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComputerMagazin"
+        mc:Ignorable="d"
+        Title="PreviewOrder"  Height="550" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="LightBlue">
+    <Grid>
+        <DataGrid Name="DataGridOrder" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" HorizontalAlignment="Center" Height="485" Width="585" Margin="170,40,15,1" Background="LightBlue" BorderBrush="Black">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер заказа" Binding="{Binding id_order}" MinWidth="85" MaxWidth="85"/>
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding data_order, StringFormat={}{0:dd.MM.yyyy}}" MinWidth="100" MaxWidth="100"/>
+                <DataGridTextColumn Header="Айди конфигурации" Binding="{Binding id_pc_features_personal}" MinWidth="100" MaxWidth="100"/>
+                <DataGridTextColumn Header="Дата доставки" Binding="{Binding data_delivery, StringFormat={}{0:dd.MM.yyyy}}" MinWidth="1000" MaxWidth="100"/>
+                <DataGridTextColumn Header="Сумма заказа" Binding="{Binding total_price}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,1,1,1" Height="35" Width="690" FontSize="19" Background="LightBlue" BorderBrush="LightBlue" Content="Компьютерный магазин: У Влада  (Админ панель) Заказы"/>
+        <Button Name="CloseWindow" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="100" FontSize="19" Background="RoyalBlue" BorderBrush="LightBlue" Content="Назад" Click="CloseWindow_OnClick"/>
+        <Button Name="CheckConf" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,200,0,0" Height="50" Width="180" FontSize="18" Background="RoyalBlue" BorderBrush="LightBlue" Content="Подробности конф." Click="CheckConf_Click"/>
+        <Button Name="OpenOrder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,282,0,0" Height="50" Width="180" FontSize="18" Background="RoyalBlue" BorderBrush="LightBlue" Content="Открыть заказ" Click="OpenOrder_Click"/>
+        <Button Name="CloseOrder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,366,0,0" Height="50" Width="180" FontSize="18" Background="RoyalBlue" BorderBrush="LightBlue" Content="Закрыть заказ" Click="CloseOrder_Click"/>
+    </Grid>
+</Window>

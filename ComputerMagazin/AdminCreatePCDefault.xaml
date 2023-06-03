@@ -1,0 +1,30 @@
+﻿<Window x:Class="ComputerMagazin.AdminCreatePCDefault"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ComputerMagazin"
+        mc:Ignorable="d"
+        Title="AdminCreatePCDefault" Height="550" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="LightBlue">
+    <Grid>
+        <Button Name="CloseWindow" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="100" FontSize="19" Background="RoyalBlue" BorderBrush="LightBlue" Content="Назад" Click="CloseWindow_OnClick"/>
+        <Image Name="ImageTag" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,51,0,0" Width="237" Height="224"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="1,40,470,1" Content="Корпус:" FontSize="19"/>
+        <ComboBox Name="Body" SelectionChanged="Body_OnSelectionChanged" DisplayMemberPath="Body" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,45,10,0" FontSize="19" Width="455"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="1,100,435,1" Content="Процессор:" FontSize="19"/>
+        <ComboBox Name="CPU" SelectionChanged="CPU_OnSelectionChanged" DisplayMemberPath="CPU" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,105,10,0" FontSize="19" Width="420"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,160,382,0" Content="Оператив.память:" FontSize="19"/>
+        <ComboBox Name="RAM" SelectionChanged="RAM_OnSelectionChanged" DisplayMemberPath="RAM" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,165,10,0" FontSize="19" Width="367"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,220,431,0" Content="Видеокарта:" FontSize="19"/>
+        <ComboBox Name="GPU" SelectionChanged="GPU_OnSelectionChanged" DisplayMemberPath="GPU" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,225,10,0" FontSize="19" Width="420"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,280,372,0" Content="Твердотелый диск:" FontSize="19"/>
+        <ComboBox Name="SSD" SelectionChanged="SSD_OnSelectionChanged" DisplayMemberPath="SSD" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,285,10,0" FontSize="19" Width="357"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,340,412,0" Content="Жесткий диск:" FontSize="19"/>
+        <ComboBox Name="HDD" SelectionChanged="HDD_OnSelectionChanged" DisplayMemberPath="HDD" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,345,10,0" FontSize="19" Width="397"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,400,469,0" Content="Тип ОС:" FontSize="19"/>
+        <ComboBox Name="type_OC" SelectionChanged="Type_OC_OnSelectionChanged" DisplayMemberPath="type_OC_name" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,405,10,0" FontSize="19" Width="454"/>
+        <Button Name="CreateNewPCDefault" Content="Создать сборку" FontSize="19" HorizontalAlignment="Left" Margin="30,440,0,0" VerticalAlignment="Top" Background="RoyalBlue" Height="35" Width="150" Click="CreateNewPCDefault_OnClick"/>
+        <TextBlock Name="Price" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Left" Margin="5,405,0,0" FontSize="19" Width="200"/>
+        <TextBlock Visibility="Hidden" Name="loginSave"></TextBlock>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="ComputerMagazin.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="LightBlue">
+    <Grid>
+        <Button Name="CloseWindow" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="100" FontSize="19" Background="RoyalBlue" BorderBrush="LightBlue" Content="Закрыть" Click="CloseWindow_OnClick"/>
+        <Button Name="SignUp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="200" FontSize="19" Background="RoyalBlue" BorderBrush="LightBlue" Content="Зарегистрироваться" Click="SignUp_OnClick"/>
+        <Label Height="35" Width="250" Margin="111,1,1,75" VerticalAlignment="Center" Content="Введите логин" FontSize="19" BorderBrush="LightBlue"/>
+        <TextBox Name="LoginTextBox" PreviewKeyDown="LoginTextBox_OnPreviewKeyDown" Height="30" Width="250" FontSize="19" BorderBrush="LightBlue" PreviewTextInput="LoginTextBox_OnPreviewTextInput"/>
+        <Label Height="35" Width="250" Margin="111,1,1,150" VerticalAlignment="Bottom" Content="Введите пароль" FontSize="19" BorderBrush="LightBlue"/>
+        <PasswordBox Name="PasswordTextBox" Visibility="Visible" PreviewKeyDown="PasswordTextBox_OnPreviewKeyDown" Margin="1,1,1,120" Height="30" Width="250" VerticalAlignment="Bottom" FontSize="19" BorderBrush="LightBlue" PreviewTextInput="PasswordTextBox_OnPreviewTextInput"/>
+        <TextBox Name="PasswordRepeat" Visibility="Hidden" PreviewKeyDown="PasswordTextBox_OnPreviewKeyDown" Margin="275,300,275,0" Height="30" Width="250" VerticalAlignment="Top" FontSize="19" BorderBrush="LightBlue" PreviewTextInput="PasswordTextBox_OnPreviewTextInput"/>
+        <Button Name="LogIn" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50" Height="30" Width="100" FontSize="19" Background="RoyalBlue" BorderBrush="LightBlue" Content="Войти" Click="LogIn_OnClick"/>
+        <CheckBox Name="Check" HorizontalAlignment="Left" Margin="538,308,0,0" VerticalAlignment="Top" Height="14" Width="16" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+    </Grid>
+</Window>

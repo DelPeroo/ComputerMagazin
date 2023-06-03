@@ -1,0 +1,1341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ComputerMagazinModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="First_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Second_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="25" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="First_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Second_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="25" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pc_features_personal" Type="int" />
+          <Property Name="login" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="data_order" Type="date" />
+          <Property Name="data_delivery" Type="date" />
+          <Property Name="total_price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_Body">
+          <Key>
+            <PropertyRef Name="id_Body" />
+          </Key>
+          <Property Name="id_Body" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Body" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="photo" Type="varbinary(max)" />
+          <Property Name="price_Body" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_category">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="int" Nullable="false" />
+          <Property Name="category_status" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_CPU">
+          <Key>
+            <PropertyRef Name="id_CPU" />
+          </Key>
+          <Property Name="id_CPU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CPU" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="price_CPU" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_features_default">
+          <Key>
+            <PropertyRef Name="id_pc_features_default" />
+          </Key>
+          <Property Name="id_pc_features_default" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Body" Type="int" Nullable="false" />
+          <Property Name="id_CPU" Type="int" />
+          <Property Name="id_RAM" Type="int" />
+          <Property Name="id_GPU" Type="int" />
+          <Property Name="id_SSD" Type="int" />
+          <Property Name="id_HDD" Type="int" />
+          <Property Name="id_type_OC" Type="int" />
+          <Property Name="id_category" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_features_personal">
+          <Key>
+            <PropertyRef Name="id_pc_features_personal" />
+          </Key>
+          <Property Name="id_pc_features_personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="id_Body" Type="int" Nullable="false" />
+          <Property Name="id_CPU" Type="int" />
+          <Property Name="id_RAM" Type="int" />
+          <Property Name="id_GPU" Type="int" />
+          <Property Name="id_SSD" Type="int" />
+          <Property Name="id_HDD" Type="int" />
+          <Property Name="id_type_OC" Type="int" />
+          <Property Name="id_category" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="checkData" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_GPU">
+          <Key>
+            <PropertyRef Name="id_GPU" />
+          </Key>
+          <Property Name="id_GPU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GPU" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="price_GPU" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_HDD">
+          <Key>
+            <PropertyRef Name="id_HDD" />
+          </Key>
+          <Property Name="id_HDD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HDD" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="price_HDD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_RAM">
+          <Key>
+            <PropertyRef Name="id_RAM" />
+          </Key>
+          <Property Name="id_RAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAM" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="price_RAM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pc_SSD">
+          <Key>
+            <PropertyRef Name="id_SSD" />
+          </Key>
+          <Property Name="id_SSD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SSD" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="price_SSD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="int" Nullable="false" />
+          <Property Name="role_status" Type="varchar" MaxLength="13" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableForComboBox">
+          <Key>
+            <PropertyRef Name="id_combobox" />
+          </Key>
+          <Property Name="id_combobox" Type="int" Nullable="false" />
+          <Property Name="select_combobox" Type="varchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableForSavePictures">
+          <Key>
+            <PropertyRef Name="id_pictures" />
+          </Key>
+          <Property Name="id_pictures" Type="int" Nullable="false" />
+          <Property Name="pictures" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="type_OC">
+          <Key>
+            <PropertyRef Name="id_type_OC" />
+          </Key>
+          <Property Name="id_type_OC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_OC_name" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="price_type_OC" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__admin__id_role__5070F446">
+          <End Role="role" Type="Self.role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin" Type="Self.admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="admin">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__client__id_role__4316F928">
+          <End Role="role" Type="Self.role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__id_pc_fea__5441852A">
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_features_personal">
+              <PropertyRef Name="id_pc_features_personal" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="id_pc_features_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__login__534D60F1">
+          <End Role="client" Type="Self.client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__check__45F365D3">
+          <End Role="pc_Body" Type="Self.pc_Body" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_Body">
+              <PropertyRef Name="id_Body" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_Body" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_Bo__398D8EEE">
+          <End Role="pc_Body" Type="Self.pc_Body" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_Body">
+              <PropertyRef Name="id_Body" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_Body" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ca__403A8C7D">
+          <End Role="pc_category" Type="Self.pc_category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_category">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ca__4CA06362">
+          <End Role="pc_category" Type="Self.pc_category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_category">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_CP__3A81B327">
+          <End Role="pc_CPU" Type="Self.pc_CPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_CPU">
+              <PropertyRef Name="id_CPU" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_CP__46E78A0C">
+          <End Role="pc_CPU" Type="Self.pc_CPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_CPU">
+              <PropertyRef Name="id_CPU" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_GP__3C69FB99">
+          <End Role="pc_GPU" Type="Self.pc_GPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_GPU">
+              <PropertyRef Name="id_GPU" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_GPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_GP__48CFD27E">
+          <End Role="pc_GPU" Type="Self.pc_GPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_GPU">
+              <PropertyRef Name="id_GPU" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_GPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_HD__3E52440B">
+          <End Role="pc_HDD" Type="Self.pc_HDD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_HDD">
+              <PropertyRef Name="id_HDD" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_HDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_HD__4AB81AF0">
+          <End Role="pc_HDD" Type="Self.pc_HDD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_HDD">
+              <PropertyRef Name="id_HDD" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_HDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_RA__3B75D760">
+          <End Role="pc_RAM" Type="Self.pc_RAM" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_RAM">
+              <PropertyRef Name="id_RAM" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_RA__47DBAE45">
+          <End Role="pc_RAM" Type="Self.pc_RAM" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_RAM">
+              <PropertyRef Name="id_RAM" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_SS__3D5E1FD2">
+          <End Role="pc_SSD" Type="Self.pc_SSD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_SSD">
+              <PropertyRef Name="id_SSD" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_SSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_SS__49C3F6B7">
+          <End Role="pc_SSD" Type="Self.pc_SSD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_SSD">
+              <PropertyRef Name="id_SSD" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_SSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ty__3F466844">
+          <End Role="type_OC" Type="Self.type_OC" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_OC">
+              <PropertyRef Name="id_type_OC" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_type_OC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ty__4BAC3F29">
+          <End Role="type_OC" Type="Self.type_OC" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_OC">
+              <PropertyRef Name="id_type_OC" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_type_OC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__login__4D94879B">
+          <End Role="client" Type="Self.client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ComputerMagazinModelContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_Body" EntityType="Self.pc_Body" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_category" EntityType="Self.pc_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_CPU" EntityType="Self.pc_CPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_features_default" EntityType="Self.pc_features_default" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_features_personal" EntityType="Self.pc_features_personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_GPU" EntityType="Self.pc_GPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_HDD" EntityType="Self.pc_HDD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_RAM" EntityType="Self.pc_RAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_SSD" EntityType="Self.pc_SSD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableForComboBox" EntityType="Self.TableForComboBox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableForSavePictures" EntityType="Self.TableForSavePictures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_OC" EntityType="Self.type_OC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__admin__id_role__5070F446" Association="Self.FK__admin__id_role__5070F446">
+            <End Role="role" EntitySet="role" />
+            <End Role="admin" EntitySet="admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__client__id_role__4316F928" Association="Self.FK__client__id_role__4316F928">
+            <End Role="role" EntitySet="role" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__id_pc_fea__5441852A" Association="Self.FK__order__id_pc_fea__5441852A">
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__login__534D60F1" Association="Self.FK__order__login__534D60F1">
+            <End Role="client" EntitySet="client" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__check__45F365D3" Association="Self.FK__pc_featur__check__45F365D3">
+            <End Role="pc_Body" EntitySet="pc_Body" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_Bo__398D8EEE" Association="Self.FK__pc_featur__id_Bo__398D8EEE">
+            <End Role="pc_Body" EntitySet="pc_Body" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ca__403A8C7D" Association="Self.FK__pc_featur__id_ca__403A8C7D">
+            <End Role="pc_category" EntitySet="pc_category" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ca__4CA06362" Association="Self.FK__pc_featur__id_ca__4CA06362">
+            <End Role="pc_category" EntitySet="pc_category" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_CP__3A81B327" Association="Self.FK__pc_featur__id_CP__3A81B327">
+            <End Role="pc_CPU" EntitySet="pc_CPU" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_CP__46E78A0C" Association="Self.FK__pc_featur__id_CP__46E78A0C">
+            <End Role="pc_CPU" EntitySet="pc_CPU" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_GP__3C69FB99" Association="Self.FK__pc_featur__id_GP__3C69FB99">
+            <End Role="pc_GPU" EntitySet="pc_GPU" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_GP__48CFD27E" Association="Self.FK__pc_featur__id_GP__48CFD27E">
+            <End Role="pc_GPU" EntitySet="pc_GPU" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_HD__3E52440B" Association="Self.FK__pc_featur__id_HD__3E52440B">
+            <End Role="pc_HDD" EntitySet="pc_HDD" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_HD__4AB81AF0" Association="Self.FK__pc_featur__id_HD__4AB81AF0">
+            <End Role="pc_HDD" EntitySet="pc_HDD" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_RA__3B75D760" Association="Self.FK__pc_featur__id_RA__3B75D760">
+            <End Role="pc_RAM" EntitySet="pc_RAM" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_RA__47DBAE45" Association="Self.FK__pc_featur__id_RA__47DBAE45">
+            <End Role="pc_RAM" EntitySet="pc_RAM" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_SS__3D5E1FD2" Association="Self.FK__pc_featur__id_SS__3D5E1FD2">
+            <End Role="pc_SSD" EntitySet="pc_SSD" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_SS__49C3F6B7" Association="Self.FK__pc_featur__id_SS__49C3F6B7">
+            <End Role="pc_SSD" EntitySet="pc_SSD" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ty__3F466844" Association="Self.FK__pc_featur__id_ty__3F466844">
+            <End Role="type_OC" EntitySet="type_OC" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ty__4BAC3F29" Association="Self.FK__pc_featur__id_ty__4BAC3F29">
+            <End Role="type_OC" EntitySet="type_OC" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__login__4D94879B" Association="Self.FK__pc_featur__login__4D94879B">
+            <End Role="client" EntitySet="client" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ComputerMagazinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="First_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Second_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK__admin__id_role__5070F446" FromRole="admin" ToRole="role" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="First_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Second_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK__client__id_role__4316F928" FromRole="client" ToRole="role" />
+          <NavigationProperty Name="order" Relationship="Self.FK__order__login__534D60F1" FromRole="client" ToRole="order" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__login__4D94879B" FromRole="client" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pc_features_personal" Type="Int32" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="data_order" Type="DateTime" Precision="0" />
+          <Property Name="data_delivery" Type="DateTime" Precision="0" />
+          <Property Name="total_price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="client" Relationship="Self.FK__order__login__534D60F1" FromRole="order" ToRole="client" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__order__id_pc_fea__5441852A" FromRole="order" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="pc_Body">
+          <Key>
+            <PropertyRef Name="id_Body" />
+          </Key>
+          <Property Name="id_Body" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Body" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="price_Body" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__check__45F365D3" FromRole="pc_Body" ToRole="pc_features_personal" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_Bo__398D8EEE" FromRole="pc_Body" ToRole="pc_features_default" />
+        </EntityType>
+        <EntityType Name="pc_category">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="Int32" Nullable="false" />
+          <Property Name="category_status" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_ca__403A8C7D" FromRole="pc_category" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_ca__4CA06362" FromRole="pc_category" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="pc_CPU">
+          <Key>
+            <PropertyRef Name="id_CPU" />
+          </Key>
+          <Property Name="id_CPU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CPU" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_CPU" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_CP__3A81B327" FromRole="pc_CPU" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_CP__46E78A0C" FromRole="pc_CPU" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="pc_features_default">
+          <Key>
+            <PropertyRef Name="id_pc_features_default" />
+          </Key>
+          <Property Name="id_pc_features_default" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Body" Type="Int32" Nullable="false" />
+          <Property Name="id_CPU" Type="Int32" />
+          <Property Name="id_RAM" Type="Int32" />
+          <Property Name="id_GPU" Type="Int32" />
+          <Property Name="id_SSD" Type="Int32" />
+          <Property Name="id_HDD" Type="Int32" />
+          <Property Name="id_type_OC" Type="Int32" />
+          <Property Name="id_category" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_Body" Relationship="Self.FK__pc_featur__id_Bo__398D8EEE" FromRole="pc_features_default" ToRole="pc_Body" />
+          <NavigationProperty Name="pc_category" Relationship="Self.FK__pc_featur__id_ca__403A8C7D" FromRole="pc_features_default" ToRole="pc_category" />
+          <NavigationProperty Name="pc_CPU" Relationship="Self.FK__pc_featur__id_CP__3A81B327" FromRole="pc_features_default" ToRole="pc_CPU" />
+          <NavigationProperty Name="pc_GPU" Relationship="Self.FK__pc_featur__id_GP__3C69FB99" FromRole="pc_features_default" ToRole="pc_GPU" />
+          <NavigationProperty Name="pc_HDD" Relationship="Self.FK__pc_featur__id_HD__3E52440B" FromRole="pc_features_default" ToRole="pc_HDD" />
+          <NavigationProperty Name="pc_RAM" Relationship="Self.FK__pc_featur__id_RA__3B75D760" FromRole="pc_features_default" ToRole="pc_RAM" />
+          <NavigationProperty Name="pc_SSD" Relationship="Self.FK__pc_featur__id_SS__3D5E1FD2" FromRole="pc_features_default" ToRole="pc_SSD" />
+          <NavigationProperty Name="type_OC" Relationship="Self.FK__pc_featur__id_ty__3F466844" FromRole="pc_features_default" ToRole="type_OC" />
+        </EntityType>
+        <EntityType Name="pc_features_personal">
+          <Key>
+            <PropertyRef Name="id_pc_features_personal" />
+          </Key>
+          <Property Name="id_pc_features_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_Body" Type="Int32" Nullable="false" />
+          <Property Name="id_CPU" Type="Int32" />
+          <Property Name="id_RAM" Type="Int32" />
+          <Property Name="id_GPU" Type="Int32" />
+          <Property Name="id_SSD" Type="Int32" />
+          <Property Name="id_HDD" Type="Int32" />
+          <Property Name="id_type_OC" Type="Int32" />
+          <Property Name="id_category" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="checkData" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="client" Relationship="Self.FK__pc_featur__login__4D94879B" FromRole="pc_features_personal" ToRole="client" />
+          <NavigationProperty Name="order" Relationship="Self.FK__order__id_pc_fea__5441852A" FromRole="pc_features_personal" ToRole="order" />
+          <NavigationProperty Name="pc_Body" Relationship="Self.FK__pc_featur__check__45F365D3" FromRole="pc_features_personal" ToRole="pc_Body" />
+          <NavigationProperty Name="pc_category" Relationship="Self.FK__pc_featur__id_ca__4CA06362" FromRole="pc_features_personal" ToRole="pc_category" />
+          <NavigationProperty Name="pc_CPU" Relationship="Self.FK__pc_featur__id_CP__46E78A0C" FromRole="pc_features_personal" ToRole="pc_CPU" />
+          <NavigationProperty Name="pc_GPU" Relationship="Self.FK__pc_featur__id_GP__48CFD27E" FromRole="pc_features_personal" ToRole="pc_GPU" />
+          <NavigationProperty Name="pc_HDD" Relationship="Self.FK__pc_featur__id_HD__4AB81AF0" FromRole="pc_features_personal" ToRole="pc_HDD" />
+          <NavigationProperty Name="pc_RAM" Relationship="Self.FK__pc_featur__id_RA__47DBAE45" FromRole="pc_features_personal" ToRole="pc_RAM" />
+          <NavigationProperty Name="pc_SSD" Relationship="Self.FK__pc_featur__id_SS__49C3F6B7" FromRole="pc_features_personal" ToRole="pc_SSD" />
+          <NavigationProperty Name="type_OC" Relationship="Self.FK__pc_featur__id_ty__4BAC3F29" FromRole="pc_features_personal" ToRole="type_OC" />
+        </EntityType>
+        <EntityType Name="pc_GPU">
+          <Key>
+            <PropertyRef Name="id_GPU" />
+          </Key>
+          <Property Name="id_GPU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GPU" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_GPU" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_GP__3C69FB99" FromRole="pc_GPU" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_GP__48CFD27E" FromRole="pc_GPU" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="pc_HDD">
+          <Key>
+            <PropertyRef Name="id_HDD" />
+          </Key>
+          <Property Name="id_HDD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HDD" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_HDD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_HD__3E52440B" FromRole="pc_HDD" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_HD__4AB81AF0" FromRole="pc_HDD" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="pc_RAM">
+          <Key>
+            <PropertyRef Name="id_RAM" />
+          </Key>
+          <Property Name="id_RAM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RAM" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_RAM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_RA__3B75D760" FromRole="pc_RAM" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_RA__47DBAE45" FromRole="pc_RAM" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="pc_SSD">
+          <Key>
+            <PropertyRef Name="id_SSD" />
+          </Key>
+          <Property Name="id_SSD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SSD" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_SSD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_SS__3D5E1FD2" FromRole="pc_SSD" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_SS__49C3F6B7" FromRole="pc_SSD" ToRole="pc_features_personal" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <Property Name="role_status" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="admin" Relationship="Self.FK__admin__id_role__5070F446" FromRole="role" ToRole="admin" />
+          <NavigationProperty Name="client" Relationship="Self.FK__client__id_role__4316F928" FromRole="role" ToRole="client" />
+        </EntityType>
+        <EntityType Name="TableForComboBox">
+          <Key>
+            <PropertyRef Name="id_combobox" />
+          </Key>
+          <Property Name="id_combobox" Type="Int32" Nullable="false" />
+          <Property Name="select_combobox" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableForSavePictures">
+          <Key>
+            <PropertyRef Name="id_pictures" />
+          </Key>
+          <Property Name="id_pictures" Type="Int32" Nullable="false" />
+          <Property Name="pictures" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="type_OC">
+          <Key>
+            <PropertyRef Name="id_type_OC" />
+          </Key>
+          <Property Name="id_type_OC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_OC_name" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_type_OC" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pc_features_default" Relationship="Self.FK__pc_featur__id_ty__3F466844" FromRole="type_OC" ToRole="pc_features_default" />
+          <NavigationProperty Name="pc_features_personal" Relationship="Self.FK__pc_featur__id_ty__4BAC3F29" FromRole="type_OC" ToRole="pc_features_personal" />
+        </EntityType>
+        <Association Name="FK__admin__id_role__5070F446">
+          <End Role="role" Type="Self.role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin" Type="Self.admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="admin">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__client__id_role__4316F928">
+          <End Role="role" Type="Self.role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__login__534D60F1">
+          <End Role="client" Type="Self.client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__login__4D94879B">
+          <End Role="client" Type="Self.client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__id_pc_fea__5441852A">
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_features_personal">
+              <PropertyRef Name="id_pc_features_personal" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="id_pc_features_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__check__45F365D3">
+          <End Role="pc_Body" Type="Self.pc_Body" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_Body">
+              <PropertyRef Name="id_Body" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_Body" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_Bo__398D8EEE">
+          <End Role="pc_Body" Type="Self.pc_Body" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_Body">
+              <PropertyRef Name="id_Body" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_Body" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ca__403A8C7D">
+          <End Role="pc_category" Type="Self.pc_category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_category">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ca__4CA06362">
+          <End Role="pc_category" Type="Self.pc_category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_category">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_CP__3A81B327">
+          <End Role="pc_CPU" Type="Self.pc_CPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_CPU">
+              <PropertyRef Name="id_CPU" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_CP__46E78A0C">
+          <End Role="pc_CPU" Type="Self.pc_CPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_CPU">
+              <PropertyRef Name="id_CPU" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_GP__3C69FB99">
+          <End Role="pc_GPU" Type="Self.pc_GPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_GPU">
+              <PropertyRef Name="id_GPU" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_GPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_HD__3E52440B">
+          <End Role="pc_HDD" Type="Self.pc_HDD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_HDD">
+              <PropertyRef Name="id_HDD" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_HDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_RA__3B75D760">
+          <End Role="pc_RAM" Type="Self.pc_RAM" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_RAM">
+              <PropertyRef Name="id_RAM" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_SS__3D5E1FD2">
+          <End Role="pc_SSD" Type="Self.pc_SSD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_SSD">
+              <PropertyRef Name="id_SSD" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_SSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ty__3F466844">
+          <End Role="type_OC" Type="Self.type_OC" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_default" Type="Self.pc_features_default" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_OC">
+              <PropertyRef Name="id_type_OC" />
+            </Principal>
+            <Dependent Role="pc_features_default">
+              <PropertyRef Name="id_type_OC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_GP__48CFD27E">
+          <End Role="pc_GPU" Type="Self.pc_GPU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_GPU">
+              <PropertyRef Name="id_GPU" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_GPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_HD__4AB81AF0">
+          <End Role="pc_HDD" Type="Self.pc_HDD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_HDD">
+              <PropertyRef Name="id_HDD" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_HDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_RA__47DBAE45">
+          <End Role="pc_RAM" Type="Self.pc_RAM" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_RAM">
+              <PropertyRef Name="id_RAM" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_SS__49C3F6B7">
+          <End Role="pc_SSD" Type="Self.pc_SSD" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_SSD">
+              <PropertyRef Name="id_SSD" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_SSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__pc_featur__id_ty__4BAC3F29">
+          <End Role="type_OC" Type="Self.type_OC" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pc_features_personal" Type="Self.pc_features_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_OC">
+              <PropertyRef Name="id_type_OC" />
+            </Principal>
+            <Dependent Role="pc_features_personal">
+              <PropertyRef Name="id_type_OC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ComputerMagazinEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="order" EntityType="Self.order" />
+          <EntitySet Name="pc_Body" EntityType="Self.pc_Body" />
+          <EntitySet Name="pc_category" EntityType="Self.pc_category" />
+          <EntitySet Name="pc_CPU" EntityType="Self.pc_CPU" />
+          <EntitySet Name="pc_features_default" EntityType="Self.pc_features_default" />
+          <EntitySet Name="pc_features_personal" EntityType="Self.pc_features_personal" />
+          <EntitySet Name="pc_GPU" EntityType="Self.pc_GPU" />
+          <EntitySet Name="pc_HDD" EntityType="Self.pc_HDD" />
+          <EntitySet Name="pc_RAM" EntityType="Self.pc_RAM" />
+          <EntitySet Name="pc_SSD" EntityType="Self.pc_SSD" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="TableForComboBox" EntityType="Self.TableForComboBox" />
+          <EntitySet Name="TableForSavePictures" EntityType="Self.TableForSavePictures" />
+          <EntitySet Name="type_OC" EntityType="Self.type_OC" />
+          <AssociationSet Name="FK__admin__id_role__5070F446" Association="Self.FK__admin__id_role__5070F446">
+            <End Role="role" EntitySet="role" />
+            <End Role="admin" EntitySet="admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__client__id_role__4316F928" Association="Self.FK__client__id_role__4316F928">
+            <End Role="role" EntitySet="role" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__login__534D60F1" Association="Self.FK__order__login__534D60F1">
+            <End Role="client" EntitySet="client" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__login__4D94879B" Association="Self.FK__pc_featur__login__4D94879B">
+            <End Role="client" EntitySet="client" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__id_pc_fea__5441852A" Association="Self.FK__order__id_pc_fea__5441852A">
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__check__45F365D3" Association="Self.FK__pc_featur__check__45F365D3">
+            <End Role="pc_Body" EntitySet="pc_Body" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_Bo__398D8EEE" Association="Self.FK__pc_featur__id_Bo__398D8EEE">
+            <End Role="pc_Body" EntitySet="pc_Body" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ca__403A8C7D" Association="Self.FK__pc_featur__id_ca__403A8C7D">
+            <End Role="pc_category" EntitySet="pc_category" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ca__4CA06362" Association="Self.FK__pc_featur__id_ca__4CA06362">
+            <End Role="pc_category" EntitySet="pc_category" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_CP__3A81B327" Association="Self.FK__pc_featur__id_CP__3A81B327">
+            <End Role="pc_CPU" EntitySet="pc_CPU" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_CP__46E78A0C" Association="Self.FK__pc_featur__id_CP__46E78A0C">
+            <End Role="pc_CPU" EntitySet="pc_CPU" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_GP__3C69FB99" Association="Self.FK__pc_featur__id_GP__3C69FB99">
+            <End Role="pc_GPU" EntitySet="pc_GPU" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_HD__3E52440B" Association="Self.FK__pc_featur__id_HD__3E52440B">
+            <End Role="pc_HDD" EntitySet="pc_HDD" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_RA__3B75D760" Association="Self.FK__pc_featur__id_RA__3B75D760">
+            <End Role="pc_RAM" EntitySet="pc_RAM" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_SS__3D5E1FD2" Association="Self.FK__pc_featur__id_SS__3D5E1FD2">
+            <End Role="pc_SSD" EntitySet="pc_SSD" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ty__3F466844" Association="Self.FK__pc_featur__id_ty__3F466844">
+            <End Role="type_OC" EntitySet="type_OC" />
+            <End Role="pc_features_default" EntitySet="pc_features_default" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_GP__48CFD27E" Association="Self.FK__pc_featur__id_GP__48CFD27E">
+            <End Role="pc_GPU" EntitySet="pc_GPU" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_HD__4AB81AF0" Association="Self.FK__pc_featur__id_HD__4AB81AF0">
+            <End Role="pc_HDD" EntitySet="pc_HDD" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_RA__47DBAE45" Association="Self.FK__pc_featur__id_RA__47DBAE45">
+            <End Role="pc_RAM" EntitySet="pc_RAM" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_SS__49C3F6B7" Association="Self.FK__pc_featur__id_SS__49C3F6B7">
+            <End Role="pc_SSD" EntitySet="pc_SSD" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__pc_featur__id_ty__4BAC3F29" Association="Self.FK__pc_featur__id_ty__4BAC3F29">
+            <End Role="type_OC" EntitySet="type_OC" />
+            <End Role="pc_features_personal" EntitySet="pc_features_personal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ComputerMagazinModelContainer" CdmEntityContainer="ComputerMagazinEntities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Second_name" ColumnName="Second_name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Second_name" ColumnName="Second_name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_pc_features_personal" ColumnName="id_pc_features_personal" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="data_order" ColumnName="data_order" />
+                <ScalarProperty Name="data_delivery" ColumnName="data_delivery" />
+                <ScalarProperty Name="total_price" ColumnName="total_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_Body">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_Body">
+              <MappingFragment StoreEntitySet="pc_Body">
+                <ScalarProperty Name="id_Body" ColumnName="id_Body" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="price_Body" ColumnName="price_Body" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_category">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_category">
+              <MappingFragment StoreEntitySet="pc_category">
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="category_status" ColumnName="category_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_CPU">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_CPU">
+              <MappingFragment StoreEntitySet="pc_CPU">
+                <ScalarProperty Name="id_CPU" ColumnName="id_CPU" />
+                <ScalarProperty Name="CPU" ColumnName="CPU" />
+                <ScalarProperty Name="price_CPU" ColumnName="price_CPU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_features_default">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_features_default">
+              <MappingFragment StoreEntitySet="pc_features_default">
+                <ScalarProperty Name="id_pc_features_default" ColumnName="id_pc_features_default" />
+                <ScalarProperty Name="id_Body" ColumnName="id_Body" />
+                <ScalarProperty Name="id_CPU" ColumnName="id_CPU" />
+                <ScalarProperty Name="id_RAM" ColumnName="id_RAM" />
+                <ScalarProperty Name="id_GPU" ColumnName="id_GPU" />
+                <ScalarProperty Name="id_SSD" ColumnName="id_SSD" />
+                <ScalarProperty Name="id_HDD" ColumnName="id_HDD" />
+                <ScalarProperty Name="id_type_OC" ColumnName="id_type_OC" />
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_features_personal">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_features_personal">
+              <MappingFragment StoreEntitySet="pc_features_personal">
+                <ScalarProperty Name="id_pc_features_personal" ColumnName="id_pc_features_personal" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="id_Body" ColumnName="id_Body" />
+                <ScalarProperty Name="id_CPU" ColumnName="id_CPU" />
+                <ScalarProperty Name="id_RAM" ColumnName="id_RAM" />
+                <ScalarProperty Name="id_GPU" ColumnName="id_GPU" />
+                <ScalarProperty Name="id_SSD" ColumnName="id_SSD" />
+                <ScalarProperty Name="id_HDD" ColumnName="id_HDD" />
+                <ScalarProperty Name="id_type_OC" ColumnName="id_type_OC" />
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="checkData" ColumnName="checkData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_GPU">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_GPU">
+              <MappingFragment StoreEntitySet="pc_GPU">
+                <ScalarProperty Name="id_GPU" ColumnName="id_GPU" />
+                <ScalarProperty Name="GPU" ColumnName="GPU" />
+                <ScalarProperty Name="price_GPU" ColumnName="price_GPU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_HDD">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_HDD">
+              <MappingFragment StoreEntitySet="pc_HDD">
+                <ScalarProperty Name="id_HDD" ColumnName="id_HDD" />
+                <ScalarProperty Name="HDD" ColumnName="HDD" />
+                <ScalarProperty Name="price_HDD" ColumnName="price_HDD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_RAM">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_RAM">
+              <MappingFragment StoreEntitySet="pc_RAM">
+                <ScalarProperty Name="id_RAM" ColumnName="id_RAM" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="price_RAM" ColumnName="price_RAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_SSD">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.pc_SSD">
+              <MappingFragment StoreEntitySet="pc_SSD">
+                <ScalarProperty Name="id_SSD" ColumnName="id_SSD" />
+                <ScalarProperty Name="SSD" ColumnName="SSD" />
+                <ScalarProperty Name="price_SSD" ColumnName="price_SSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="role_status" ColumnName="role_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableForComboBox">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.TableForComboBox">
+              <MappingFragment StoreEntitySet="TableForComboBox">
+                <ScalarProperty Name="id_combobox" ColumnName="id_combobox" />
+                <ScalarProperty Name="select_combobox" ColumnName="select_combobox" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableForSavePictures">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.TableForSavePictures">
+              <MappingFragment StoreEntitySet="TableForSavePictures">
+                <ScalarProperty Name="id_pictures" ColumnName="id_pictures" />
+                <ScalarProperty Name="pictures" ColumnName="pictures" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_OC">
+            <EntityTypeMapping TypeName="ComputerMagazinModel.type_OC">
+              <MappingFragment StoreEntitySet="type_OC">
+                <ScalarProperty Name="id_type_OC" ColumnName="id_type_OC" />
+                <ScalarProperty Name="type_OC_name" ColumnName="type_OC_name" />
+                <ScalarProperty Name="price_type_OC" ColumnName="price_type_OC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a1b896aaf85542b6b99a7c1f3ff634cd" Name="Diagram1">
+        <EntityTypeShape EntityType="ComputerMagazinModel.admin" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.client" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.order" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_Body" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_category" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_CPU" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_features_default" Width="1.5" PointX="8.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_features_personal" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_GPU" Width="1.5" PointX="6" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_HDD" Width="1.5" PointX="6" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_RAM" Width="1.5" PointX="6" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.pc_SSD" Width="1.5" PointX="6" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.role" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.TableForComboBox" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.TableForSavePictures" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerMagazinModel.type_OC" Width="1.5" PointX="6" PointY="31" IsExpanded="true" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__admin__id_role__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__client__id_role__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__order__login__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__login__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__order__id_pc_fea__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__check__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_Bo__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_ca__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_ca__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_CP__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_CP__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_GP__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_HD__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_RA__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_SS__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_ty__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_GP__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_HD__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_RA__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_SS__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerMagazinModel.FK__pc_featur__id_ty__4BAC3F29" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
